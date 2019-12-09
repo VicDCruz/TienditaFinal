@@ -46,7 +46,7 @@ public class WSEnvios {
     }
 
     @WebMethod(operationName = "find")
-    public Registro find(@WebParam(name = "id") Object id) {
+    public Registro find(@WebParam(name = "id") int id) {
         return ejbRef.find(id);
     }
 
