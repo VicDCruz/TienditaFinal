@@ -47,7 +47,7 @@ public class WSAlmacen
     }
 
     @WebMethod(operationName = "find")
-    public Product find(@WebParam(name = "id") Object id) {
+    public Product find(@WebParam(name = "id") int id) {
         return ejbRef.find(id);
     }
 
