@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="serviciosTiendita"
+    targetNamespace="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
+    <import namespace="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" location="DescriptorBPEL/TienditaWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSAlmacenWrapper" location="WSAlmacenWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://ws/" location="http://localhost:33996/WSAlmacen/WSAlmacen?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSEnviosWrapper" location="WSEnviosWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsenvios/" location="http://localhost:33996/WSEnvios/WSEnvios?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSPagosConTDCWrapper" location="WSPagosConTDCWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wservices/" location="ServicioPagos/localhost_33996/WSPagos/WSPagosConTDC.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaCustomerWrapper" location="WSConsultaCustomerWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaCustomer/WSConsultaCustomer?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaDiscountCodeWrapper" location="WSConsultaDiscountCodeWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaDiscountCode/WSConsultaDiscountCode?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaManufacturerWrapper" location="WSConsultaManufacturerWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaManufacturer/WSConsultaManufacturer?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaMicroMarketWrapper" location="WSConsultaMicroMarketWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaMicroMarket/WSConsultaMicroMarket?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaProductWrapper" location="WSConsultaProductWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaProduct/WSConsultaProduct?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaProductCodeWrapper" location="WSConsultaProductCodeWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaProductCode/WSConsultaProductCode?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSConsultaPurchaseOrderWrapper" location="WSConsultaPurchaseOrderWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsconsultas/" location="http://localhost:33996/WSConsultaPurchaseOrder/WSConsultaPurchaseOrder?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="ServicioAlmacen" xmlns:tns="http://enterprise.netbeans.org/bpel/WSAlmacenWrapper" partnerLinkType="tns:WSAlmacenLinkType" partnerRole="WSAlmacenRole"/>
+        <partnerLink name="ServicioEnvios" xmlns:tns="http://enterprise.netbeans.org/bpel/WSEnviosWrapper" partnerLinkType="tns:WSEnviosLinkType" partnerRole="WSEnviosRole"/>
+        <partnerLink name="ServicioPagos" xmlns:tns="http://enterprise.netbeans.org/bpel/WSPagosConTDCWrapper" partnerLinkType="tns:WSPagosConTDCLinkType" partnerRole="WSPagosConTDCRole"/>
+        <partnerLink name="ServicioConsultaCustomer" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaCustomerWrapper" partnerLinkType="tns:WSConsultaCustomerLinkType" partnerRole="WSConsultaCustomerRole"/>
+        <partnerLink name="ServicioConsultaDiscountCode" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaDiscountCodeWrapper" partnerLinkType="tns:WSConsultaDiscountCodeLinkType" partnerRole="WSConsultaDiscountCodeRole"/>
+        <partnerLink name="ServicioConsultaManufacturer" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaManufacturerWrapper" partnerLinkType="tns:WSConsultaManufacturerLinkType" partnerRole="WSConsultaManufacturerRole"/>
+        <partnerLink name="ServicioConsultaMicroMarket" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaMicroMarketWrapper" partnerLinkType="tns:WSConsultaMicroMarketLinkType" partnerRole="WSConsultaMicroMarketRole"/>
+        <partnerLink name="ServicioConsultaProduct" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaProductWrapper" partnerLinkType="tns:WSConsultaProductLinkType" partnerRole="WSConsultaProductRole"/>
+        <partnerLink name="ServicioConsultaProductCode" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaProductCodeWrapper" partnerLinkType="tns:WSConsultaProductCodeLinkType" partnerRole="WSConsultaProductCodeRole"/>
+        <partnerLink name="ServicioConsultaPurchaseOrder" xmlns:tns="http://enterprise.netbeans.org/bpel/WSConsultaPurchaseOrderWrapper" partnerLinkType="tns:WSConsultaPurchaseOrderLinkType" partnerRole="WSConsultaPurchaseOrderRole"/>
+        <partnerLink name="Tiendita" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" partnerLinkType="tns:TienditaWSDL" myRole="TienditaWSDLPortTypeRole"/>
+    </partnerLinks>
+    <sequence>
+   </sequence>
+</process>

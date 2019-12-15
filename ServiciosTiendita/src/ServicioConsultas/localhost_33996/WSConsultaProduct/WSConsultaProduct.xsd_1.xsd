@@ -6,6 +6,8 @@
 
 <xs:element name="create" type="tns:create"/>
 
+<xs:element name="discountCode" type="tns:discountCode"/>
+
 <xs:element name="edit" type="tns:edit"/>
 
 <xs:element name="find" type="tns:find"/>
@@ -20,21 +22,18 @@
 
 <xs:element name="findResponse" type="tns:findResponse"/>
 
-<xs:element name="productCode" type="tns:productCode"/>
-
 <xs:element name="remove" type="tns:remove"/>
 
 <xs:complexType name="remove">
 <xs:sequence>
-<xs:element name="entity" type="tns:productCode" minOccurs="0"/>
+<xs:element name="entity" type="tns:discountCode" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="productCode">
+<xs:complexType name="discountCode">
 <xs:sequence>
-<xs:element name="description" type="xs:string" minOccurs="0"/>
-<xs:element name="discountCode" type="xs:unsignedShort" minOccurs="0"/>
-<xs:element name="prodCode" type="xs:string" minOccurs="0"/>
+<xs:element name="discountCode" type="xs:string" minOccurs="0"/>
+<xs:element name="rate" type="xs:decimal" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -44,7 +43,7 @@
 
 <xs:complexType name="findAllResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:productCode" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="tns:discountCode" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -60,7 +59,7 @@
 
 <xs:complexType name="create">
 <xs:sequence>
-<xs:element name="entity" type="tns:productCode" minOccurs="0"/>
+<xs:element name="entity" type="tns:discountCode" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -72,7 +71,7 @@
 
 <xs:complexType name="findResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:productCode" minOccurs="0"/>
+<xs:element name="return" type="tns:discountCode" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -84,13 +83,13 @@
 
 <xs:complexType name="findRangeResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:productCode" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="tns:discountCode" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="edit">
 <xs:sequence>
-<xs:element name="entity" type="tns:productCode" minOccurs="0"/>
+<xs:element name="entity" type="tns:discountCode" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
