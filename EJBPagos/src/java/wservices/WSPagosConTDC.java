@@ -47,7 +47,7 @@ public class WSPagosConTDC {
     }
 
     @WebMethod(operationName = "find")
-    public Tdc find(@WebParam(name = "id") Object id) {
+    public Tdc find(@WebParam(name = "id") int id) {
         return ejbRef.find(id);
     }
 
