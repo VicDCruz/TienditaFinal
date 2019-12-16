@@ -8,7 +8,7 @@
         <part name="idCliente" type="xsd:int"/>
         <part name="idProducto" type="xsd:int"/>
         <part name="cantidad" type="xsd:int"/>
-        <part name="precioUnitario" type="xsd:decimal"/>
+        <part name="idTdc" type="xsd:int"/>
     </message>
     <message name="TienditaWSDLOperationResponse">
         <part name="part1" type="xsd:string"/>

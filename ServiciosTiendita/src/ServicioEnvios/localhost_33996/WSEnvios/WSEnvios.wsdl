@@ -28,6 +28,12 @@
 <message name="findAllResponse">
 <part name="parameters" element="tns:findAllResponse"/>
 </message>
+<message name="altaSolicitudDeEnvio">
+<part name="parameters" element="tns:altaSolicitudDeEnvio"/>
+</message>
+<message name="altaSolicitudDeEnvioResponse">
+<part name="parameters" element="tns:altaSolicitudDeEnvioResponse"/>
+</message>
 <message name="edit">
 <part name="parameters" element="tns:edit"/>
 </message>
@@ -55,6 +61,10 @@
 <operation name="findAll">
 <input wsam:Action="http://wsenvios/WSEnvios/findAllRequest" message="tns:findAll"/>
 <output wsam:Action="http://wsenvios/WSEnvios/findAllResponse" message="tns:findAllResponse"/>
+</operation>
+<operation name="altaSolicitudDeEnvio">
+<input wsam:Action="http://wsenvios/WSEnvios/altaSolicitudDeEnvioRequest" message="tns:altaSolicitudDeEnvio"/>
+<output wsam:Action="http://wsenvios/WSEnvios/altaSolicitudDeEnvioResponse" message="tns:altaSolicitudDeEnvioResponse"/>
 </operation>
 <operation name="edit">
 <input wsam:Action="http://wsenvios/WSEnvios/edit" message="tns:edit"/>
@@ -97,6 +107,15 @@
 </input>
 </operation>
 <operation name="findAll">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="altaSolicitudDeEnvio">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
