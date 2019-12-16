@@ -84,4 +84,8 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+<<<<<<< HEAD
 /tstEJBPagos/nbproject/private/
+=======
+/TienditaWeb/nbproject/private/
+>>>>>>> master
