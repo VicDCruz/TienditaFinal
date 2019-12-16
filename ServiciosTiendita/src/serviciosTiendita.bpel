@@ -127,7 +127,7 @@
         <invoke name="OrdenEnvio" partnerLink="ServicioEnvios" operation="altaSolicitudDeEnvio" xmlns:tns="http://wsenvios/" portType="tns:WSEnvios" inputVariable="AltaSolicitudDeEnvioIn" outputVariable="AltaSolicitudDeEnvioOut"/>
         <assign name="AsignaOk">
             <copy>
-                <from>concat('Gracias por tu compra. Tu número de pedido es  ', stub(), $AltaSolicitudDeEnvioOut.parameters/return)</from>
+                <from>concat('Gracias por tu compra. Tu número de pedido es  ', $AltaSolicitudDeEnvioOut.parameters/return)</from>
                 <to variable="TienditaWSDLOperationOut" part="part1"/>
             </copy>
         </assign>
