@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testenvios;
+package test;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,13 +35,11 @@ public class TestEnvios {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        webservice.WSEnvios_Service service = new webservice.WSEnvios_Service();
-        webservice.WSEnvios port = service.getWSEnviosPort();
-        
-        int loop = getLoop();
+        int loop = args[1] == null ? getLoop() : Integer.parseInt(args[1]);
         System.out.println("Esta prueba realizará " + loop + " iteraciones");
+        
         for (int i = 0; i < loop; i++) {
-            System.out.println("Resultado " + TestEnvios.doRequest(port));
+            System.out.println("Resultado " + TestEnvios.doRequest());
         }
     }
 
@@ -57,15 +56,36 @@ public class TestEnvios {
     }
     
     private static int getLoop() {
-        return 1 + ((int) Math.round(Math.random() * (TOTALENTREGAS - 1)));
+        return 1 + ((int) Math.round(Math.random() * (MAXLOOP - 1)));
     }
     
     private static int getOrden() {
         orden++;
         return orden;
     }
+    
+    private static XMLGregorianCalendar getXMLDate() {
+        XMLGregorianCalendar output = null;
+        
+        try {
+            String FORMATER = "yyyy-MM-dd'T'HH:mm:ss'Z'";
+            
+            DateFormat format = new SimpleDateFormat(FORMATER);
+            
+            Date date = new Date();
+            output =
+                    DatatypeFactory.newInstance().newXMLGregorianCalendar(format.format(date));
+        } catch (DatatypeConfigurationException ex) {
+            Logger.getLogger(TestEnvios.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return output;
+    }
 
-    public static String doRequest(webservice.WSEnvios port) {
+    public static String doRequest() {
+        webservice.WSEnvios_Service service = new webservice.WSEnvios_Service();
+        webservice.WSEnvios port = service.getWSEnviosPort();
+        
         String output = null;
 
         switch (getOperation()) {
@@ -73,16 +93,7 @@ public class TestEnvios {
                 output = "count: " + count(port) + " envios";
                 break;
             case 2:
-                XMLGregorianCalendar date = null;
-                try {
-                    String dateString = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
-                    date =
-                            DatatypeFactory
-                                    .newInstance()
-                                    .newXMLGregorianCalendar(dateString);
-                } catch (DatatypeConfigurationException ex) {
-                    Logger.getLogger(TestEnvios.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                XMLGregorianCalendar date = getXMLDate();
                 
                 Registro entity = new Registro();
                 entity.setCustomerId(getCustomerId());
@@ -99,16 +110,7 @@ public class TestEnvios {
                 }
                 break;
             case 3:
-                XMLGregorianCalendar dateEdit = null;
-                try {
-                    String dateString = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
-                    date =
-                            DatatypeFactory
-                                    .newInstance()
-                                    .newXMLGregorianCalendar(dateString);
-                } catch (DatatypeConfigurationException ex) {
-                    Logger.getLogger(TestEnvios.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                XMLGregorianCalendar dateEdit = getXMLDate();
                 
                 Registro editR = new Registro();
                 editR.setCustomerId(getCustomerId());
@@ -129,24 +131,26 @@ public class TestEnvios {
                     Registro r = find(getEntregaId(), port);
                     output = "find: Se encontró " + r.getEntregaId();
                 } catch (Exception e) {
-                    output = "Sin resultados";
+                    output = "find: Sin resultados";
                 }
                 break;
             case 5:
                 try {
                     List<Registro> rAll = findAll(port);
-                    output = "findAll: Se encontraron " + rAll.size() + "registros";
+                    output = "findAll: Se encontraron " + rAll.size() + " registros";
                 } catch (Exception e) {
                     output = "findAll: Error al encontrar todos";
                 }
                 break;
             case 6:
-                List<Integer> l = new ArrayList<Integer>();
+                List<Integer> l = new ArrayList<>();
                 for (int i = 0; i < 15; i++) {
                     int id = getEntregaId();
                     if (!l.contains(id))
                         l.add(id);
                 }
+                System.out.println("findRange: # Elementos a enviar - " + 
+                        l.size());
                 List<Registro> rAll = findRange(l, port);
                 output = "findRange: Se encontraron " + 
                         rAll.size() + "/" + l.size() + "registros";
@@ -192,7 +196,7 @@ public class TestEnvios {
     }
 
     private static List<webservice.Registro> findRange(
-            java.util.List<java.lang.Integer> range, webservice.WSEnvios port) {
+            List<java.lang.Integer> range, webservice.WSEnvios port) {
         return port.findRange(range);
     }
 

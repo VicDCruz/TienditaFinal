@@ -36,6 +36,15 @@ public class Client {
 
         String className = (args.length < 1) ? 
                 "clasesdinamicos.HolaMundo" : args[0];
+        
+        String[] argsPar = new String[0];
+
+        if (args.length > 1) {
+            argsPar = new String[args.length - 1];
+            for (int j = 1; j < args.length; j++) {
+                argsPar[j - 1] = args[j];
+            }
+        }
 
         try {
             Registry registry = LocateRegistry.getRegistry(host);
@@ -56,7 +65,7 @@ public class Client {
                     Method m = null;
                     cl = Class.forName(className);
                     m = cl.getMethod("main", cArg);
-                    m.invoke(cl, (Object) new String[1]);
+                    m.invoke(cl, (Object) argsPar);
                     System.out.println("Distribuidor ha invocado, notar cuando aparece este mensaje...");
                 } catch (Exception ex) {
                     System.err.println("Client exception: " + ex.toString());
