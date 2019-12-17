@@ -21,8 +21,8 @@ and open the template in the editor.
                         wservices.WSPagosConTDC port = service.getWSPagosConTDCPort();
                         // TODO process result here
                         java.util.List<wservices.Tdc> result = port.findAll();
-                        for (int i = 0; i < result.size() ; i++) {
-                            out.println("<option>"+ result.get(i).getTdcId()+ "</option>");
+                        for (int i = 0; i < result.size(); i++) {
+                            out.println("<option>" + result.get(i).getTdcId() + "</option>");
                         }
                     } catch (Exception ex) {
                         // TODO handle custom exceptions here
