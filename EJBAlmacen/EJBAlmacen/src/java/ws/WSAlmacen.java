@@ -5,8 +5,8 @@
  */
 package ws;
 
-import ejbenvios.Product;
-import ejbenvios.ProductFacade;
+import ejbalmacen.Product;
+import ejbalmacen.ProductFacade;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.jws.WebService;

@@ -4,6 +4,9 @@
     <service name="WSAlmacen">
       <implementation-class>ws.WSAlmacen</implementation-class>
     </service>
+    <service name="WSOrdenCompra">
+      <implementation-class>ws.WSOrdenCompra</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

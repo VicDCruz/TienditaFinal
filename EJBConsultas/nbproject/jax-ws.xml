@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="WSConsultaCustomer">
+      <implementation-class>wsconsultas.WSConsultaCustomer</implementation-class>
+    </service>
+    <service name="WSConsultaDiscountCode">
+      <implementation-class>wsconsultas.WSConsultaDiscountCode</implementation-class>
+    </service>
+    <service name="WSConsultaManufacturer">
+      <implementation-class>wsconsultas.WSConsultaManufacturer</implementation-class>
+    </service>
+    <service name="WSConsultaMicroMarket">
+      <implementation-class>wsconsultas.WSConsultaMicroMarket</implementation-class>
+    </service>
+    <service name="WSConsultaProductCode">
+      <implementation-class>wsconsultas.WSConsultaProductCode</implementation-class>
+    </service>
+    <service name="WSConsultaProduct">
+      <implementation-class>wsconsultas.WSConsultaProduct</implementation-class>
+    </service>
+    <service name="WSConsultaPurchaseOrder">
+      <implementation-class>wsconsultas.WSConsultaPurchaseOrder</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>
