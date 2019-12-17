@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/D:/ExamenFinalGamboa/EJBAlmacen/BPELAlmacen/build/DescriptorBPEL/TiendaWSDL.wsdl" uri="src/conf/xml-resources/web-services/BPELAlmacen/wsdl/TiendaWSDL.wsdl"/>
-    <system systemId="http://localhost:33996/WSAlmacen/WSAlmacen?WSDL" uri="src/conf/xml-resources/web-service-references/WSAlmacen/wsdl/localhost_33996/WSAlmacen/WSAlmacen.wsdl"/>
-    <system systemId="http://localhost:33996/WSAlmacen/WSAlmacen?xsd=1" uri="src/conf/xml-resources/web-service-references/WSAlmacen/wsdl/localhost_33996/WSAlmacen/WSAlmacen.xsd_1.xsd"/>
+    <system systemId="file:/C:/Users/vicda/Documents/TienditaFinal/ServiciosTiendita/build/DescriptorBPEL/TienditaWSDL.wsdl" uri="src/conf/xml-resources/web-service-references/TienditaWSDL/wsdl/TienditaWSDL.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?WSDL" uri="src/conf/xml-resources/web-service-references/WSEnvios/wsdl/localhost_33996/WSEnvios/WSEnvios.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?xsd=1" uri="src/conf/xml-resources/web-service-references/WSEnvios/wsdl/localhost_33996/WSEnvios/WSEnvios.xsd_1.xsd"/>
 </catalog>

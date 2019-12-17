@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita" xmlns:ns2="http://ws/" xmlns:ns3="http://wservices/" xmlns:ns4="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" xmlns:ns5="http://wsenvios/" version="1.0">
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita" xmlns:ns2="http://ws/" xmlns:ns3="http://wsconsultas/" xmlns:ns4="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" xmlns:ns5="http://wservices/" xmlns:ns6="http://wsenvios/" version="1.0">
     <services binding-component="true">
         <provides endpoint-name="WSOrdenCompraPort" interface-name="ns2:WSOrdenCompra" service-name="ns2:WSOrdenCompra"/>
-        <provides endpoint-name="WSPagosConTDCPort" interface-name="ns3:WSPagosConTDC" service-name="ns3:WSPagos"/>
+        <provides endpoint-name="WSConsultaDiscountCodePort" interface-name="ns3:WSConsultaDiscountCode" service-name="ns3:WSConsultaDiscountCode"/>
+        <provides endpoint-name="WSConsultaManufacturerPort" interface-name="ns3:WSConsultaManufacturer" service-name="ns3:WSConsultaManufacturer"/>
+        <provides endpoint-name="WSConsultaMicroMarketPort" interface-name="ns3:WSConsultaMicroMarket" service-name="ns3:WSConsultaMicroMarket"/>
+        <provides endpoint-name="WSConsultaProductPort" interface-name="ns3:WSConsultaProduct" service-name="ns3:WSConsultaProduct"/>
+        <provides endpoint-name="WSPagosConTDCPort" interface-name="ns5:WSPagosConTDC" service-name="ns5:WSPagos"/>
+        <provides endpoint-name="WSConsultaPurchaseOrderPort" interface-name="ns3:WSConsultaPurchaseOrder" service-name="ns3:WSConsultaPurchaseOrder"/>
         <provides endpoint-name="WSAlmacenPort" interface-name="ns2:WSAlmacen" service-name="ns2:WSAlmacen"/>
-        <provides endpoint-name="WSEnviosPort" interface-name="ns5:WSEnvios" service-name="ns5:WSEnvios"/>
+        <provides endpoint-name="WSConsultaCustomerPort" interface-name="ns3:WSConsultaCustomer" service-name="ns3:WSConsultaCustomer"/>
+        <provides endpoint-name="WSConsultaProductCodePort" interface-name="ns3:WSConsultaProductCode" service-name="ns3:WSConsultaProductCode"/>
+        <provides endpoint-name="WSEnviosPort" interface-name="ns6:WSEnvios" service-name="ns6:WSEnvios"/>
         <consumes endpoint-name="TienditaWSDLPort" interface-name="ns4:TienditaWSDLPortType" service-name="ns4:TienditaWSDLService"/>
     </services>
 </jbi>

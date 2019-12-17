@@ -84,30 +84,24 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 /tstEJBPagos/nbproject/private/
-=======
 /TienditaWeb/nbproject/private/
->>>>>>> master
 /EJBAlmacen/tstEJBAlmacen/nbproject/private/
-=======
 /TestEnvios/nbproject/private/
 /TienditaWeb/nbproject/private/
->>>>>>> paginaWebEnvios
 /EJBAlmacen/Tiendita/nbproject/private/
 /EJBAlmacen/BPELAlmacen/nbproject/private/
 /EJBAlmacen/AlmacenComposite/nbproject/private/
 /EJBAlmacen/AlmacenComposite/src/jbiServiceUnits/
 /EJBAlmacen/AlmacenComposite/test/results/
-=======
 /tstEJBPagos/nbproject/private/
 /TestEnvios/nbproject/private/
 /TienditaWeb/nbproject/private/
+/TestEnvios/nbproject/private/
+/TienditaWeb/nbproject/private/
+/AplicacionTiendita/src/jbiServiceUnits/
 /ServiciosVenta/nbproject/private/
 /ServiciosTiendita/nbproject/private/
 /AplicacionTiendita/nbproject/private/
 /AplicacionTiendita/src/jbiServiceUnits/
 /AplicacionTiendita/test/results/
->>>>>>> dev

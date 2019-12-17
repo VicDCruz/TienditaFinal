@@ -8,4 +8,18 @@
     <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?xsd=1" uri="../ServicioPagos/localhost_33996/WSPagos/WSPagosConTDC.xsd_1.xsd"/>
     <system systemId="http://localhost:33996/WSOrdenCompra/WSOrdenCompra?WSDL" uri="../ServicioAlmacen/localhost_33996/WSOrdenCompra/WSOrdenCompra.wsdl"/>
     <system systemId="http://localhost:33996/WSOrdenCompra/WSOrdenCompra?xsd=1" uri="../ServicioAlmacen/localhost_33996/WSOrdenCompra/WSOrdenCompra.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaCustomer/WSConsultaCustomer?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaCustomer/WSConsultaCustomer.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaCustomer/WSConsultaCustomer?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaCustomer/WSConsultaCustomer.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaDiscountCode/WSConsultaDiscountCode?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaDiscountCode/WSConsultaDiscountCode.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaDiscountCode/WSConsultaDiscountCode?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaDiscountCode/WSConsultaDiscountCode.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaManufacturer/WSConsultaManufacturer?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaManufacturer/WSConsultaManufacturer.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaManufacturer/WSConsultaManufacturer?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaManufacturer/WSConsultaManufacturer.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaMicroMarket/WSConsultaMicroMarket?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaMicroMarket/WSConsultaMicroMarket.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaMicroMarket/WSConsultaMicroMarket?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaMicroMarket/WSConsultaMicroMarket.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaProductCode/WSConsultaProductCode?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaProductCode/WSConsultaProductCode.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaProductCode/WSConsultaProductCode?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaProductCode/WSConsultaProductCode.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaProduct/WSConsultaProduct?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaProduct/WSConsultaProduct.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaProduct/WSConsultaProduct?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaProduct/WSConsultaProduct.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSConsultaPurchaseOrder/WSConsultaPurchaseOrder?WSDL" uri="../ServicioConsultas/localhost_33996/WSConsultaPurchaseOrder/WSConsultaPurchaseOrder.wsdl"/>
+    <system systemId="http://localhost:33996/WSConsultaPurchaseOrder/WSConsultaPurchaseOrder?xsd=1" uri="../ServicioConsultas/localhost_33996/WSConsultaPurchaseOrder/WSConsultaPurchaseOrder.xsd_1.xsd"/>
 </catalog>
