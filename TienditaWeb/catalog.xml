@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/C:/Users/vicda/Documents/TienditaFinal/ServiciosTiendita/build/DescriptorBPEL/TienditaWSDL.wsdl" uri="src/conf/xml-resources/web-service-references/TienditaWSDL/wsdl/TienditaWSDL.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?WSDL" uri="src/conf/xml-resources/web-service-references/WSEnvios/wsdl/localhost_33996/WSEnvios/WSEnvios.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?xsd=1" uri="src/conf/xml-resources/web-service-references/WSEnvios/wsdl/localhost_33996/WSEnvios/WSEnvios.xsd_1.xsd"/>
+</catalog>
