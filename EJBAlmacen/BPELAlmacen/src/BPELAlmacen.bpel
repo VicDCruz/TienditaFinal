@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="BPELAlmacen"
+    targetNamespace="http://enterprise.netbeans.org/bpel/BPELAlmacen/BPELAlmacen"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/BPELAlmacen/BPELAlmacen"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
+    <import namespace="http://j2ee.netbeans.org/wsdl/BPELAlmacen/DescriptorBPEL/TiendaWSDL" location="DescriptorBPEL/TiendaWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSAlmacenWrapper" location="WSAlmacenWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://ws/" location="http://localhost:33996/WSAlmacen/WSAlmacen?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="ServicioAlmacen" xmlns:tns="http://enterprise.netbeans.org/bpel/WSAlmacenWrapper" partnerLinkType="tns:WSAlmacenLinkType" partnerRole="WSAlmacenRole"/>
+        <partnerLink name="Almacen" xmlns:tns="http://j2ee.netbeans.org/wsdl/BPELAlmacen/DescriptorBPEL/TiendaWSDL" partnerLinkType="tns:TiendaWSDL" myRole="TiendaWSDLPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="FindAllIn" xmlns:tns="http://ws/" messageType="tns:findAll"/>
+        <variable name="FindAllOut" xmlns:tns="http://ws/" messageType="tns:findAllResponse"/>
+        <variable name="TiendaWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/BPELAlmacen/DescriptorBPEL/TiendaWSDL" messageType="tns:TiendaWSDLOperationResponse"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="Almacen" operation="TiendaWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/BPELAlmacen/DescriptorBPEL/TiendaWSDL" portType="tns:TiendaWSDLPortType"/>
+        <invoke name="Invoke1" partnerLink="ServicioAlmacen" operation="findAll" xmlns:tns="http://ws/" portType="tns:WSAlmacen" outputVariable="FindAllOut" inputVariable="FindAllIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from>$FindAllOut.parameters/return/productId</from>
+                <to variable="TiendaWSDLOperationOut" part="productID"/>
+            </copy>
+            <copy>
+                <from>$FindAllOut.parameters/return/description</from>
+                <to variable="TiendaWSDLOperationOut" part="description"/>
+            </copy>
+            <copy>
+                <from>$FindAllOut.parameters/return/purchaseCost</from>
+                <to variable="TiendaWSDLOperationOut" part="purchaseCost"/>
+            </copy>
+            <copy>
+                <from>$FindAllOut.parameters/return/quantityOnHand</from>
+                <to variable="TiendaWSDLOperationOut" part="quantityOnHand"/>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="Almacen" operation="TiendaWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/BPELAlmacen/DescriptorBPEL/TiendaWSDL" portType="tns:TiendaWSDLPortType" variable="TiendaWSDLOperationOut"/>
+    </sequence>
+</process>

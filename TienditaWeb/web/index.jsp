@@ -65,7 +65,11 @@
 
                     <div class="row">
                         
+                        
+                        
                         <% 
+                            
+                            
                         
                             for(int i=0;i<10;i++){
                                 out.println("<div class='col-md-4'>");

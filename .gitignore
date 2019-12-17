@@ -96,3 +96,7 @@ pom.xml.tag
 /TienditaWeb/nbproject/private/
 >>>>>>> paginaWebEnvios
 /EJBAlmacen/Tiendita/nbproject/private/
+/EJBAlmacen/BPELAlmacen/nbproject/private/
+/EJBAlmacen/AlmacenComposite/nbproject/private/
+/EJBAlmacen/AlmacenComposite/src/jbiServiceUnits/
+/EJBAlmacen/AlmacenComposite/test/results/
