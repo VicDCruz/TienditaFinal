@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="TienditaFinalWSDL" targetNamespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns0="http://wsconsultas/">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL">
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaCustomer/WSConsultaCustomer?xsd=1"/>
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaDiscountCode/WSConsultaDiscountCode?xsd=1"/>
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaManufacturer/WSConsultaManufacturer?xsd=1"/>
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaMicroMarket/WSConsultaMicroMarket?xsd=1"/>
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaProduct/WSConsultaProduct?xsd=1"/>
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaProductCode/WSConsultaProductCode?xsd=1"/>
+            <xsd:import namespace="http://wsconsultas/" schemaLocation="http://localhost:33996/WSConsultaPurchaseOrder/WSConsultaPurchaseOrder?xsd=1"/>
+        </xsd:schema>
+    </types>
+    <message name="CompraRequest">
+        <part name="idCliente" type="xsd:int"/>
+        <part name="idProducto" type="xsd:int"/>
+        <part name="cantidad" type="xsd:int"/>
+        <part name="idTarjeta" type="xsd:int"/>
+    </message>
+    <message name="CompraResponse">
+        <part name="resultado" type="xsd:string"/>
+    </message>
+    <message name="ConsultaRequest"></message>
+    <message name="ConsultaCustomersResponse">
+        <part name="resultado" type="ns0:findAllCustomersResponse"/>
+    </message>
+    <message name="ConsultaDiscountCodesResponse">
+        <part name="resultado" type="ns0:findAllDiscountCodeResponse"/>
+    </message>
+    <message name="ConsultaManufacturersResponse">
+        <part name="resultado" type="ns0:findAllManufacturerResponse"/>
+    </message>
+    <message name="ConsultaMicroMarketsResponse">
+        <part name="resultado" type="ns0:findAllMicroMarketResponse"/>
+    </message>
+    <message name="ConsultaProductsResponse">
+        <part name="resultado" type="ns0:findAllProductResponse"/>
+    </message>
+    <message name="ConsultaProductCodesResponse">
+        <part name="resultado" type="ns0:findAllProductCodeResponse"/>
+    </message>
+    <message name="ConsultaPurchaseOrdersResponse">
+        <part name="resultado" type="ns0:findAllPurchaseOrderResponse"/>
+    </message>
+    <portType name="TienditaFinalWSDLPortType">
+        <operation name="CompraOperation">
+            <input name="input1" message="tns:CompraRequest"/>
+            <output name="output1" message="tns:CompraResponse"/>
+        </operation>
+        <operation name="ConsultaCustomersOperation">
+            <input name="input2" message="tns:ConsultaRequest"/>
+            <output name="output2" message="tns:ConsultaCustomersResponse"/>
+        </operation>
+        <operation name="ConsultaDiscountCodesOperation">
+            <input name="input3" message="tns:ConsultaRequest"/>
+            <output name="output3" message="tns:ConsultaDiscountCodesResponse"/>
+        </operation>
+        <operation name="ConsultaManufacturersOperation">
+            <input name="input4" message="tns:ConsultaRequest"/>
+            <output name="output4" message="tns:ConsultaManufacturersResponse"/>
+        </operation>
+        <operation name="ConsultaMicroMarketsOperation">
+            <input name="input5" message="tns:ConsultaRequest"/>
+            <output name="output5" message="tns:ConsultaMicroMarketsResponse"/>
+        </operation>
+        <operation name="ConsultaProductsOperation">
+            <input name="input6" message="tns:ConsultaRequest"/>
+            <output name="output6" message="tns:ConsultaProductsResponse"/>
+        </operation>
+        <operation name="ConsultaProductCodesOperation">
+            <input name="input7" message="tns:ConsultaRequest"/>
+            <output name="output7" message="tns:ConsultaProductCodesResponse"/>
+        </operation>
+        <operation name="ConsultaPurchaseOrdersOperation">
+            <input name="input8" message="tns:ConsultaRequest"/>
+            <output name="output8" message="tns:ConsultaPurchaseOrdersResponse"/>
+        </operation>
+    </portType>
+    <binding name="TienditaFinalWSDLBinding" type="tns:TienditaFinalWSDLPortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="CompraOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaProductsOperation">
+            <soap:operation/>
+            <input name="input6">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output6">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaProductCodesOperation">
+            <soap:operation/>
+            <input name="input7">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output7">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaCustomersOperation">
+            <soap:operation/>
+            <input name="input2">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output2">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaDiscountCodesOperation">
+            <soap:operation/>
+            <input name="input3">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output3">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaManufacturersOperation">
+            <soap:operation/>
+            <input name="input4">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output4">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaMicroMarketsOperation">
+            <soap:operation/>
+            <input name="input5">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output5">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+        <operation name="ConsultaPurchaseOrdersOperation">
+            <soap:operation/>
+            <input name="input8">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </input>
+            <output name="output8">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/ServiciosTienditaFinal/DescriptorBPEL/TienditaFinalWSDL"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="TienditaFinalWSDLService">
+        <port name="TienditaFinalWSDLPort" binding="tns:TienditaFinalWSDLBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/TienditaFinalWSDLService/TienditaFinalWSDLPort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="TienditaFinalWSDL">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="TienditaFinalWSDLPortTypeRole" portType="tns:TienditaFinalWSDLPortType"/>
+    </plnk:partnerLinkType>
+</definitions>
