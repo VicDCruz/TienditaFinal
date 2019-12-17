@@ -64,21 +64,23 @@ public class WSEnvios {
     public int count() {
         return ejbRef.count();
     }
-    
+
     //
-    //   =========== Metodo adicional para alta de solicitud de envíos ========
+    // =========== Metodo adicional para alta de solicitud de envíos ========
     //
     /**
      * Web service operation
+     * 
      * @param Customer_ID
      * @param Orden_Compra
      * @param Status
-     * @return 
+     * @return
      */
     @WebMethod(operationName = "altaSolicitudDeEnvio")
-    public int altaSolicitudDeEnvio( @WebParam(name = "Customer_ID") int Customer_ID, @WebParam(name = "Orden_Compra") int Orden_Compra, @WebParam(name = "Status") char Status) {
+    public int altaSolicitudDeEnvio(@WebParam(name = "Customer_ID") int Customer_ID,
+            @WebParam(name = "Orden_Compra") int Orden_Compra, @WebParam(name = "Status") char Status) {
         Registro objReg = new Registro();
-        int intEntrega_id = ejbRef.count()+1;
+        int intEntrega_id = ejbRef.count() + 1;
         objReg.setEntregaId(intEntrega_id);
         objReg.setCustomerId(Customer_ID);
         objReg.setOrdenCompra(Orden_Compra);
@@ -86,5 +88,5 @@ public class WSEnvios {
         ejbRef.create(objReg);
         return intEntrega_id;
     }
-    
+
 }
