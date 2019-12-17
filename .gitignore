@@ -85,3 +85,5 @@ release.properties
 pom.xml.releaseBackup
 pom.xml.tag
 /TienditaWeb/nbproject/private/
+EJBAlmacen/EJBAlmacen/nbproject/private/private.xml
+EJBAlmacen/tstEJBAlmacen/nbproject/private/private.xml
