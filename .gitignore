@@ -84,6 +84,7 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+/tstEJBPagos/nbproject/private/
 /TestEnvios/nbproject/private/
 /TienditaWeb/nbproject/private/
 /ServiciosVenta/nbproject/private/
