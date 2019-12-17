@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns1="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita" xmlns:ns2="http://ws/" xmlns:ns3="http://wservices/" xmlns:ns4="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" xmlns:ns5="http://wsenvios/" version="1.0">
+    <services binding-component="true">
+        <provides endpoint-name="WSOrdenCompraPort" interface-name="ns2:WSOrdenCompra" service-name="ns2:WSOrdenCompra"/>
+        <provides endpoint-name="WSPagosConTDCPort" interface-name="ns3:WSPagosConTDC" service-name="ns3:WSPagos"/>
+        <provides endpoint-name="WSAlmacenPort" interface-name="ns2:WSAlmacen" service-name="ns2:WSAlmacen"/>
+        <provides endpoint-name="WSEnviosPort" interface-name="ns5:WSEnvios" service-name="ns5:WSEnvios"/>
+        <consumes endpoint-name="TienditaWSDLPort" interface-name="ns4:TienditaWSDLPortType" service-name="ns4:TienditaWSDLService"/>
+    </services>
+</jbi>

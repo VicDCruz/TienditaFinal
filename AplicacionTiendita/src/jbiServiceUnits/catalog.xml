@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:33996/WSAlmacen/WSAlmacen?WSDL" uri="../ServiciosTiendita/ServicioAlmacen/localhost_33996/WSAlmacen/WSAlmacen.wsdl"/>
+    <system systemId="http://localhost:33996/WSAlmacen/WSAlmacen?xsd=1" uri="../ServiciosTiendita/ServicioAlmacen/localhost_33996/WSAlmacen/WSAlmacen.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?WSDL" uri="../ServiciosTiendita/ServicioEnvios/localhost_33996/WSEnvios/WSEnvios.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?xsd=1" uri="../ServiciosTiendita/ServicioEnvios/localhost_33996/WSEnvios/WSEnvios.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?WSDL" uri="../ServiciosTiendita/ServicioPagos/localhost_33996/WSPagos/WSPagosConTDC.wsdl"/>
+    <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?xsd=1" uri="../ServiciosTiendita/ServicioPagos/localhost_33996/WSPagos/WSPagosConTDC.xsd_1.xsd"/>
+    <system systemId="http://localhost:33996/WSOrdenCompra/WSOrdenCompra?WSDL" uri="../ServiciosTiendita/ServicioAlmacen/localhost_33996/WSOrdenCompra/WSOrdenCompra.wsdl"/>
+    <system systemId="http://localhost:33996/WSOrdenCompra/WSOrdenCompra?xsd=1" uri="../ServiciosTiendita/ServicioAlmacen/localhost_33996/WSOrdenCompra/WSOrdenCompra.xsd_1.xsd"/>
+</catalog>
