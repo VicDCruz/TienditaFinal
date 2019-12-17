@@ -19,7 +19,7 @@ import javax.jws.WebParam;
  *
  * @author User
  */
-@WebService(serviceName = "NewWebService")
+@WebService(serviceName = "WSConsultaProduct")
 @Stateless()
 public class WSConsultaProduct {
 
