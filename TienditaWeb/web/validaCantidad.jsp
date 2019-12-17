@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 16/12/2019, 09:51:51 PM
+    Document   : validaCantidad
+    Created on : 17/12/2019, 01:45:26 AM
     Author     : marti
 --%>
 
@@ -9,8 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Almacén</title>
-        
+        <title>JSP Page</title>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -50,7 +49,6 @@
                 </div>
             </div>
         </header>
-
         <main role="main">
 
             <section class="jumbotron text-center">
@@ -65,57 +63,34 @@
 
                     <div class="row">
                         
+                        <%
                         
+                        String id_producto = request.getParameter("id_producto");
+                        Integer cantidad = Integer.parseInt(request.getParameter("cantidad"));
                         
-                        <% 
+                        try {
+                            ws.WSAlmacen_Service service = new ws.WSAlmacen_Service();
+                            ws.WSAlmacen port = service.getWSAlmacenPort();
+                            // TODO initialize WS operation arguments here
+                            int id = Integer.parseInt(id_producto);
+                            // TODO process result here
+                            ws.Product result = port.find(id);
                             
-                            try {
-                                ws.WSAlmacen_Service service = new ws.WSAlmacen_Service();
-                                ws.WSAlmacen port = service.getWSAlmacenPort();
-                                // TODO process result here
-                                java.util.List<ws.Product> result = port.findAll();
-                                
-                                for(int i=0;i<result.size();i++){
-                                    out.println("<div class='col-md-4'>");
-                                    out.println("<div class='card mb-4 shadow-sm'>");
-                                    out.println("<svg class='bd-placeholder-img card-img-top' width='100%' height='225' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMidYMid slice' focusable='false' role='img' aria-label='Placeholder: Thumbnail'><title>Placeholder</title><rect width='100%' height='100%' fill='#55595c'/><text x='50%' y='50%' fill='#eceeef' dy='.3em'>Thumbnail</text></svg>");
-                                    out.println("<div class='card-body'>");
-                                    out.println("<p class='card-text'>" + result.get(i).getDescription() + "</p>");
-                                    
-                                    out.println("<form method='post' action='validaCantidad.jsp'>");
-                                    out.println("<input type='hidden' name='id_producto' value='"+result.get(i).getProductId()+"'>");
-                                    out.println("<div class='row'>");
-                                    out.println("<div class='col-md-12'>");
-                                    out.println("<div class='input-group'>");
-                                    out.println("<div class='input-group-prepend'>");
-                                    out.println("<div class='input-group-text' id='btnGroupAddon'>Cantidad</div>");
-                                    out.println("</div>");
-                                    out.println("<input type='text' class='form-control' name='cantidad'>");
-                                    out.println("</div>");
-                                    out.println("</div>");
-                                    out.println("<div class='col-md-6 text-left'>");
-                                    out.println("<button type='submit' class='btn btn-sm btn-outline-secondary'>Comprar</button>");
-                                    out.println("</div>");
-                                    out.println("<div class='col-md-6 text-right'>");
-                                    out.println("<p>$"+ result.get(i).getPurchaseCost() +"</p>");
-                                    out.println("</div>");
-                                    out.println("</div>");
-                                    out.println("</form>");
-
-                                    out.println("</div>");
-                                    out.println("</div>");
-                                    out.println("</div>");
-                                }
-                                
-                            } catch (Exception ex) {
-                                // TODO handle custom exceptions here
+                            if(result.getQuantityOnHand() >= cantidad){
+                                String redirectURL = "validaTarjeta.jsp/?id_producto="+id_producto;
+                                response.sendRedirect(redirectURL);
+                            }else{
+                                out.println("<h1>No contamos con stock para surtir la cantidad seleccionada. La cantidad máxima es de: "+result.getQuantityOnHand()+" elementos.</h1>");
                             }
-                        
+                               
                             
+                        } catch (Exception ex) {
+                            // TODO handle custom exceptions here
+                        }
+                        
+
 
                         %>
-                        
-                        
                         
                     </div>
                 </div>
@@ -132,7 +107,15 @@
                 <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
             </div>
         </footer>
-    <%-- start web service invocation --%><hr/>
+        <%-- start web service invocation --%><hr/>
 
+        <%-- end web service invocation --%><hr/>
+        
+        
+    <%-- start web service invocation --%><hr/>
+    <%
+    
+    %>
     <%-- end web service invocation --%><hr/>
+    </body>
 </html>
