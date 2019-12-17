@@ -84,3 +84,7 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+/ServicioEnvios/nbproject/private/
+/AplicacionEnvios/nbproject/private/
+/AplicacionEnvios/src/jbiServiceUnits/
+/AplicacionEnvios/test/results/

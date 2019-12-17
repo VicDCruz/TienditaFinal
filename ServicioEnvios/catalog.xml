@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?WSDL" uri="src/ServicioEnvio/localhost_33996/WSEnvios/WSEnvios.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?xsd=1" uri="src/ServicioEnvio/localhost_33996/WSEnvios/WSEnvios.xsd_1.xsd"/>
+</catalog>

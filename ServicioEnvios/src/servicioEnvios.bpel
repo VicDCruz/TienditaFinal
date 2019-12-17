@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="servicioEnvios"
+    targetNamespace="http://enterprise.netbeans.org/bpel/ServicioEnvios/servicioEnvios"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/ServicioEnvios/servicioEnvios"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
+    <import namespace="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" location="Descriptor/ServicioEnviosWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSEnviosWrapper" location="WSEnviosWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsenvios/" location="http://localhost:33996/WSEnvios/WSEnvios?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="WSEnvios" xmlns:tns="http://enterprise.netbeans.org/bpel/WSEnviosWrapper" partnerLinkType="tns:WSEnviosLinkType" partnerRole="WSEnviosRole"/>
+        <partnerLink name="ServiciosEnvios" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" partnerLinkType="tns:ServicioEnviosWSDL" myRole="ServicioEnviosWSDLPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="CreateIn" xmlns:tns="http://wsenvios/" messageType="tns:create"/>
+        <variable name="ServicioEnviosWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" messageType="tns:ServicioEnviosWSDLOperationResponse"/>
+        <variable name="ServicioEnviosWSDLOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" messageType="tns:ServicioEnviosWSDLOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="ServiciosEnvios" operation="ServicioEnviosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" portType="tns:ServicioEnviosWSDLPortType" variable="ServicioEnviosWSDLOperationIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from variable="ServicioEnviosWSDLOperationIn" part="clienteId"/>
+                <to>$CreateIn.parameters/entity/customerId</to>
+            </copy>
+            <copy>
+                <from variable="ServicioEnviosWSDLOperationIn" part="entregaId"/>
+                <to>$CreateIn.parameters/entity/entregaId</to>
+            </copy>
+            <copy>
+                <from variable="ServicioEnviosWSDLOperationIn" part="fechaEntrega"/>
+                <to>$CreateIn.parameters/entity/fechaEntregado</to>
+            </copy>
+            <copy>
+                <from variable="ServicioEnviosWSDLOperationIn" part="fechaPrometida"/>
+                <to>$CreateIn.parameters/entity/fechaPrometida</to>
+            </copy>
+            <copy>
+                <from variable="ServicioEnviosWSDLOperationIn" part="ordenId"/>
+                <to>$CreateIn.parameters/entity/ordenCompra</to>
+            </copy>
+            <copy>
+                <from variable="ServicioEnviosWSDLOperationIn" part="status"/>
+                <to>$CreateIn.parameters/entity/status</to>
+            </copy>
+        </assign>
+        <invoke name="CrearEnvio" partnerLink="WSEnvios" operation="create" xmlns:tns="http://wsenvios/" portType="tns:WSEnvios" inputVariable="CreateIn"/>
+        <assign name="Assign2">
+            <copy>
+                <from>'Envio creado!'</from>
+                <to variable="ServicioEnviosWSDLOperationOut" part="resultado"/>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="ServiciosEnvios" operation="ServicioEnviosWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" portType="tns:ServicioEnviosWSDLPortType" variable="ServicioEnviosWSDLOperationOut"/>
+    </sequence>
+</process>
