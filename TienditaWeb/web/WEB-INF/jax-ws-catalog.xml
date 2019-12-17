@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?WSDL" uri="wsdl/localhost_33996/WSPagos/WSPagosConTDC.wsdl"/>
+    <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?xsd=1" uri="wsdl/localhost_33996/WSPagos/WSPagosConTDC.xsd_1.xsd"/>
     <system systemId="file:/D:/ExamenFinalGamboa/EJBAlmacen/BPELAlmacen/build/DescriptorBPEL/TiendaWSDL.wsdl" uri="src/conf/xml-resources/web-services/BPELAlmacen/wsdl/TiendaWSDL.wsdl"/>
     <system systemId="http://localhost:33996/WSAlmacen/WSAlmacen?WSDL" uri="wsdl/localhost_33996/WSAlmacen/WSAlmacen.wsdl"/>
     <system systemId="http://localhost:33996/WSAlmacen/WSAlmacen?xsd=1" uri="wsdl/localhost_33996/WSAlmacen/WSAlmacen.xsd_1.xsd"/>

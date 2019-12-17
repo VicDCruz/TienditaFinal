@@ -3,6 +3,42 @@
   <services>
   </services>
   <clients>
+    <client name="WSPagosConTDC">
+      <wsdl-url>http://localhost:33996/WSPagos/WSPagosConTDC?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_33996/WSPagos/WSPagosConTDC.wsdl</local-wsdl-file>
+      <package-name>wservices</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:33996/WSPagos/WSPagosConTDC?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>ws</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
     <client name="WSAlmacen">
       <wsdl-url>http://localhost:33996/WSAlmacen/WSAlmacen?WSDL</wsdl-url>
       <local-wsdl-file>localhost_33996/WSAlmacen/WSAlmacen.wsdl</local-wsdl-file>
@@ -72,4 +108,5 @@
       </wsimport-options>
     </client>
   </clients>
+  <jsr109>true</jsr109>
 </jax-ws>

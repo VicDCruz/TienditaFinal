@@ -26,6 +26,7 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
+
     <target name="wsimport-client-TienditaWSDL" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/TienditaWSDL"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/TienditaWSDL" destdir="${build.generated.dir}/jax-wsCache/TienditaWSDL" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/TienditaWSDL/wsdl/TienditaWSDL.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/C:/Users/vicda/Documents/TienditaFinal/ServiciosTiendita/build/DescriptorBPEL/TienditaWSDL.wsdl" xnocompile="true" xendorsed="true" package="ws">
@@ -38,6 +39,7 @@
             </fileset>
         </copy>
     </target>
+         
     <target name="wsimport-client-clean-TienditaWSDL" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/TienditaWSDL"/>
