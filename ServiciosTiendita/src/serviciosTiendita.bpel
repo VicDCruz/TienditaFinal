@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<process
+    name="serviciosTiendita"
+    targetNamespace="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:sxt="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Trace" 
+    xmlns:sxed="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2"
+    xmlns:sxat="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment"
+    xmlns:sxeh="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/ErrorHandling">
+    <import namespace="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" location="DescriptorBPEL/TienditaWSDL.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSAlmacenWrapper" location="WSAlmacenWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://ws/" location="http://localhost:33996/WSAlmacen/WSAlmacen?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSEnviosWrapper" location="WSEnviosWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wsenvios/" location="http://localhost:33996/WSEnvios/WSEnvios?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSPagosConTDCWrapper" location="WSPagosConTDCWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://wservices/" location="ServicioPagos/localhost_33996/WSPagos/WSPagosConTDC.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/WSOrdenCompraWrapper" location="WSOrdenCompraWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://ws/" location="http://localhost:33996/WSOrdenCompra/WSOrdenCompra?WSDL" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="ServicioAlmacen" xmlns:tns="http://enterprise.netbeans.org/bpel/WSAlmacenWrapper" partnerLinkType="tns:WSAlmacenLinkType" partnerRole="WSAlmacenRole"/>
+        <partnerLink name="ServicioPagos" xmlns:tns="http://enterprise.netbeans.org/bpel/WSPagosConTDCWrapper" partnerLinkType="tns:WSPagosConTDCLinkType" partnerRole="WSPagosConTDCRole"/>
+        <partnerLink name="ServicioOrdenCompra" xmlns:tns="http://enterprise.netbeans.org/bpel/WSOrdenCompraWrapper" partnerLinkType="tns:WSOrdenCompraLinkType" partnerRole="WSOrdenCompraRole"/>
+        <partnerLink name="ServicioEnvios" xmlns:tns="http://enterprise.netbeans.org/bpel/WSEnviosWrapper" partnerLinkType="tns:WSEnviosLinkType" partnerRole="WSEnviosRole"/>
+        <partnerLink name="Tiendita" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" partnerLinkType="tns:TienditaWSDL" myRole="TienditaWSDLPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="AltaOCOut" xmlns:tns="http://ws/" messageType="tns:altaOCResponse"/>
+        <variable name="AltaOCIn" xmlns:tns="http://ws/" messageType="tns:altaOC"/>
+        <variable name="PagoConTDCOut" xmlns:tns="http://wservices/" messageType="tns:PagoConTDCResponse"/>
+        <variable name="PagoConTDCIn" xmlns:tns="http://wservices/" messageType="tns:PagoConTDC"/>
+        <variable name="MontoVtayDescuentaExistenciaOut" xmlns:tns="http://ws/" messageType="tns:MontoVtayDescuentaExistenciaResponse"/>
+        <variable name="MontoVtayDescuentaExistenciaIn" xmlns:tns="http://ws/" messageType="tns:MontoVtayDescuentaExistencia"/>
+        <variable name="AltaSolicitudDeEnvioOut" xmlns:tns="http://wsenvios/" messageType="tns:altaSolicitudDeEnvioResponse"/>
+        <variable name="AltaSolicitudDeEnvioIn" xmlns:tns="http://wsenvios/" messageType="tns:altaSolicitudDeEnvio"/>
+        <variable name="TienditaWSDLOperationOut1" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" messageType="tns:TienditaWSDLOperationResponse"/>
+        <variable name="TienditaWSDLOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" messageType="tns:TienditaWSDLOperationResponse"/>
+        <variable name="TienditaWSDLOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" messageType="tns:TienditaWSDLOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Recepcion" createInstance="yes" partnerLink="Tiendita" operation="TienditaWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" portType="tns:TienditaWSDLPortType" variable="TienditaWSDLOperationIn"/>
+        <assign name="AsignaStock">
+            <copy>
+                <from variable="TienditaWSDLOperationIn" part="idProducto"/>
+                <to>$MontoVtayDescuentaExistenciaIn.parameters/Product_Id</to>
+            </copy>
+            <copy>
+                <from variable="TienditaWSDLOperationIn" part="cantidad"/>
+                <to>$MontoVtayDescuentaExistenciaIn.parameters/Cantidad</to>
+            </copy>
+        </assign>
+        <invoke name="MontoYDescuenta" partnerLink="ServicioAlmacen" operation="MontoVtayDescuentaExistencia" xmlns:tns="http://ws/" portType="tns:WSAlmacen" inputVariable="MontoVtayDescuentaExistenciaIn" outputVariable="MontoVtayDescuentaExistenciaOut"/>
+        <if name="If1">
+            <condition>$MontoVtayDescuentaExistenciaOut.parameters/return &gt; 0</condition>
+            <sequence name="Sequence1">
+                <assign name="AsignaFactura">
+                    <copy>
+                        <from variable="TienditaWSDLOperationIn" part="idTdc"/>
+                        <to>$PagoConTDCIn.parameters/intTDC</to>
+                    </copy>
+                    <copy>
+                        <from>$MontoVtayDescuentaExistenciaOut.parameters/return</from>
+                        <to>$PagoConTDCIn.parameters/dblMonto</to>
+                    </copy>
+                </assign>
+                <invoke name="Facturar" partnerLink="ServicioPagos" operation="PagoConTDC" xmlns:tns="http://wservices/" portType="tns:WSPagosConTDC" inputVariable="PagoConTDCIn" outputVariable="PagoConTDCOut"/>
+            </sequence>
+            <else>
+                <sequence name="Sequence2">
+                    <assign name="AsignaNoStock">
+                        <copy>
+                            <from>'Stock insuficiente'</from>
+                            <to variable="TienditaWSDLOperationOut1" part="part1"/>
+                        </copy>
+                    </assign>
+                    <reply name="RespuestaNoOk" partnerLink="Tiendita" operation="TienditaWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" portType="tns:TienditaWSDLPortType" variable="TienditaWSDLOperationOut1"/>
+                </sequence>
+            </else>
+        </if>
+        <assign name="AsignaOrden">
+            <copy>
+                <from variable="TienditaWSDLOperationIn" part="idCliente"/>
+                <to>$AltaOCIn.parameters/Customer_Id</to>
+            </copy>
+            <copy>
+                <from variable="TienditaWSDLOperationIn" part="idProducto"/>
+                <to>$AltaOCIn.parameters/Product_Id</to>
+            </copy>
+            <copy>
+                <from variable="TienditaWSDLOperationIn" part="cantidad"/>
+                <to>$AltaOCIn.parameters/Quantity</to>
+            </copy>
+            <copy>
+                <from>'Bork'</from>
+                <to>$AltaOCIn.parameters/FreigthCompany</to>
+            </copy>
+            <copy>
+                <from>0.0</from>
+                <to>$AltaOCIn.parameters/ShippingCost</to>
+            </copy>
+            <copy>
+                <from>0</from>
+                <to>$AltaOCIn.parameters/intSalesDate</to>
+            </copy>
+            <copy>
+                <from>0</from>
+                <to>$AltaOCIn.parameters/intShippingDate</to>
+            </copy>
+        </assign>
+        <invoke name="CreaOrdenCompra" partnerLink="ServicioOrdenCompra" operation="altaOC" xmlns:tns="http://ws/" portType="tns:WSOrdenCompra" inputVariable="AltaOCIn" outputVariable="AltaOCOut"/>
+        <assign name="AsignaEnvio">
+            <copy>
+                <from variable="TienditaWSDLOperationIn" part="idCliente"/>
+                <to>$AltaSolicitudDeEnvioIn.parameters/Customer_ID</to>
+            </copy>
+            <copy>
+                <from>$AltaOCOut.parameters/return</from>
+                <to>$AltaSolicitudDeEnvioIn.parameters/Orden_Compra</to>
+            </copy>
+            <copy>
+                <from>''</from>
+                <to>$AltaSolicitudDeEnvioIn.parameters/Status</to>
+            </copy>
+        </assign>
+        <invoke name="OrdenEnvio" partnerLink="ServicioEnvios" operation="altaSolicitudDeEnvio" xmlns:tns="http://wsenvios/" portType="tns:WSEnvios" inputVariable="AltaSolicitudDeEnvioIn" outputVariable="AltaSolicitudDeEnvioOut"/>
+        <assign name="AsignaOk">
+            <copy>
+                <from>concat('Gracias por tu compra. Tu número de pedido es  ', $AltaSolicitudDeEnvioOut.parameters/return)</from>
+                <to variable="TienditaWSDLOperationOut" part="part1"/>
+            </copy>
+        </assign>
+        <reply name="RespuestaOk" partnerLink="Tiendita" operation="TienditaWSDLOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" portType="tns:TienditaWSDLPortType" variable="TienditaWSDLOperationOut"/>
+    </sequence>
+</process>
