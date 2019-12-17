@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/ServicioEnvios/servicioEnvios" xmlns:ns1="http://wsenvios/" xmlns:ns2="http://j2ee.netbeans.org/wsdl/ServicioEnvios/Descriptor/ServicioEnviosWSDL" xmlns:ns3="http://www.sun.com/jbi/descriptor/service-unit" version="1.0">
+    <services binding-component="false">
+        <provides endpoint-name="ServicioEnviosWSDLPortTypeRole_myRole" interface-name="ns2:ServicioEnviosWSDLPortType" service-name="ns0:ServiciosEnvios">
+            <ns3:display-name>ServiciosEnvios</ns3:display-name>
+            <ns3:process-name>servicioEnvios</ns3:process-name>
+            <ns3:file-path>servicioEnvios.bpel</ns3:file-path>
+        </provides>
+        <consumes endpoint-name="WSEnviosRole_partnerRole" interface-name="ns1:WSEnvios" service-name="ns0:WSEnvios">
+            <ns3:display-name>WSEnvios</ns3:display-name>
+            <ns3:process-name>servicioEnvios</ns3:process-name>
+            <ns3:file-path>servicioEnvios.bpel</ns3:file-path>
+        </consumes>
+    </services>
+</jbi>

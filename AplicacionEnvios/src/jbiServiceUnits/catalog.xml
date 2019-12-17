@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?WSDL" uri="../ServicioEnvios/ServicioEnvio/localhost_33996/WSEnvios/WSEnvios.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?xsd=1" uri="../ServicioEnvios/ServicioEnvio/localhost_33996/WSEnvios/WSEnvios.xsd_1.xsd"/>
+</catalog>
