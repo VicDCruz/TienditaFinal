@@ -85,8 +85,13 @@ release.properties
 pom.xml.releaseBackup
 pom.xml.tag
 <<<<<<< HEAD
+<<<<<<< HEAD
 /tstEJBPagos/nbproject/private/
 =======
 /TienditaWeb/nbproject/private/
 >>>>>>> master
 /EJBAlmacen/tstEJBAlmacen/nbproject/private/
+=======
+/TestEnvios/nbproject/private/
+/TienditaWeb/nbproject/private/
+>>>>>>> paginaWebEnvios
