@@ -19,18 +19,20 @@ import javax.xml.datatype.XMLGregorianCalendar;
  * @author vicda
  */
 public class Envio {
-    // private Registro entity;
+    private int cId;
+    private int eId;
+    private XMLGregorianCalendar sDate;
+    private int oId;
+    private int status;
 
     public Envio(Date date, int customerId, int entregaId, int ordenId) {
         XMLGregorianCalendar shippingDate = this.getXMLDate(date);
         
-//        this.entity = new Registro();
-//        this.entity.setCustomerId(customerId);
-//        this.entity.setEntregaId(entregaId);
-//        this.entity.setFechaEntregado(shippingDate);
-//        this.entity.setFechaPrometida(shippingDate);
-//        this.entity.setOrdenCompra(ordenId);
-//        this.entity.setStatus(1);
+        this.cId = customerId;
+        this.eId = entregaId;
+        this.sDate = shippingDate;
+        this.oId = ordenId;
+        this.status = 1;
     }
     
     private XMLGregorianCalendar getXMLDate(Date date) {
@@ -50,6 +52,19 @@ public class Envio {
     }
     
     public void crearEnvio() {
-        // TODO
+        ws.Registro r = new ws.Registro();
+        r.setCustomerId(this.cId);
+        r.setEntregaId(this.eId);
+        r.setFechaEntregado(this.sDate);
+        r.setFechaPrometida(this.sDate);
+        r.setOrdenCompra(this.oId);
+        r.setStatus(this.status);
+        create(r);
+    }
+
+    private static void create(ws.Registro entity) {
+        ws.WSEnvios_Service service = new ws.WSEnvios_Service();
+        ws.WSEnvios port = service.getWSEnviosPort();
+        port.create(entity);
     }
 }
