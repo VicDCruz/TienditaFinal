@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/ServiciosTiendita/serviciosTiendita" xmlns:ns1="http://ws/" xmlns:ns2="http://wservices/" xmlns:ns3="http://wsenvios/" xmlns:ns4="http://wsconsultas/" xmlns:ns5="http://j2ee.netbeans.org/wsdl/ServiciosVenta/DescriptorBPEL/TienditaWSDL" xmlns:ns6="http://www.sun.com/jbi/descriptor/service-unit" version="1.0">
+    <services binding-component="false">
+        <provides endpoint-name="TienditaWSDLPortTypeRole_myRole" interface-name="ns5:TienditaWSDLPortType" service-name="ns0:Tiendita">
+            <ns6:display-name>Tiendita</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </provides>
+        <consumes endpoint-name="WSAlmacenRole_partnerRole" interface-name="ns1:WSAlmacen" service-name="ns0:ServicioAlmacen">
+            <ns6:display-name>ServicioAlmacen</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSPagosConTDCRole_partnerRole" interface-name="ns2:WSPagosConTDC" service-name="ns0:ServicioPagos">
+            <ns6:display-name>ServicioPagos</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSOrdenCompraRole_partnerRole" interface-name="ns1:WSOrdenCompra" service-name="ns0:ServicioOrdenCompra">
+            <ns6:display-name>ServicioOrdenCompra</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSEnviosRole_partnerRole" interface-name="ns3:WSEnvios" service-name="ns0:ServicioEnvios">
+            <ns6:display-name>ServicioEnvios</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaCustomerRole_partnerRole" interface-name="ns4:WSConsultaCustomer" service-name="ns0:ServicioConsultaCustomer">
+            <ns6:display-name>ServicioConsultaCustomer</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaDiscountCodeRole_partnerRole" interface-name="ns4:WSConsultaDiscountCode" service-name="ns0:ServicioConsultaDiscountCode">
+            <ns6:display-name>ServicioConsultaDiscountCode</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaManufacturerRole_partnerRole" interface-name="ns4:WSConsultaManufacturer" service-name="ns0:ServicioConsultaManufacturer">
+            <ns6:display-name>ServicioConsultaManufacturer</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaMicroMarketRole_partnerRole" interface-name="ns4:WSConsultaMicroMarket" service-name="ns0:ServicioConsultaMicroMarket">
+            <ns6:display-name>ServicioConsultaMicroMarket</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaProductRole_partnerRole" interface-name="ns4:WSConsultaProduct" service-name="ns0:ServicioConsultaProduct">
+            <ns6:display-name>ServicioConsultaProduct</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaProductCodeRole_partnerRole" interface-name="ns4:WSConsultaProductCode" service-name="ns0:ServicioConsultaProductCode">
+            <ns6:display-name>ServicioConsultaProductCode</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+        <consumes endpoint-name="WSConsultaPurchaseOrderRole_partnerRole" interface-name="ns4:WSConsultaPurchaseOrder" service-name="ns0:ServicioConsultaPurchaseOrder">
+            <ns6:display-name>ServicioConsultaPurchaseOrder</ns6:display-name>
+            <ns6:process-name>serviciosTiendita</ns6:process-name>
+            <ns6:file-path>serviciosTiendita.bpel</ns6:file-path>
+        </consumes>
+    </services>
+</jbi>

@@ -2,4 +2,7 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?WSDL" uri="src/conf/xml-resources/web-service-references/WSPagosConTDC/wsdl/localhost_33996/WSPagos/WSPagosConTDC.wsdl"/>
     <system systemId="http://localhost:33996/WSPagos/WSPagosConTDC?xsd=1" uri="src/conf/xml-resources/web-service-references/WSPagosConTDC/wsdl/localhost_33996/WSPagos/WSPagosConTDC.xsd_1.xsd"/>
+    <system systemId="file:/C:/Users/vicda/Documents/TienditaFinal/ServiciosTiendita/build/DescriptorBPEL/TienditaWSDL.wsdl" uri="src/conf/xml-resources/web-service-references/TienditaWSDL/wsdl/TienditaWSDL.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?WSDL" uri="src/conf/xml-resources/web-service-references/WSEnvios/wsdl/localhost_33996/WSEnvios/WSEnvios.wsdl"/>
+    <system systemId="http://localhost:33996/WSEnvios/WSEnvios?xsd=1" uri="src/conf/xml-resources/web-service-references/WSEnvios/wsdl/localhost_33996/WSEnvios/WSEnvios.xsd_1.xsd"/>
 </catalog>
