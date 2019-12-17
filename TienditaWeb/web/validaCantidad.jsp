@@ -77,7 +77,7 @@
                             ws.Product result = port.find(id);
                             
                             if(result.getQuantityOnHand() >= cantidad){
-                                String redirectURL = "validaTarjeta.jsp/?id_producto="+id_producto;
+                                String redirectURL = "validaTarjeta.jsp/?id_producto="+id_producto+"&cantidad_sol="+cantidad;
                                 response.sendRedirect(redirectURL);
                             }else{
                                 out.println("<h1>No contamos con stock para surtir la cantidad seleccionada. La cantidad máxima es de: "+result.getQuantityOnHand()+" elementos.</h1>");
